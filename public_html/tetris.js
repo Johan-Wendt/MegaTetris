@@ -13,6 +13,8 @@ var left = 0;
 var up = 1;
 var right = 2;
 var down = 3;
+var moveDiff = [false, false, false, false, false, false, false, false, false];
+var xPosBefore, yPosBefore;
 window.onload = windowReady;
 
 
@@ -43,6 +45,7 @@ function check(e) {
 function act() {
     showPiece();
     movePiece();
+    repaint();
     updateTurn();
 }
 
@@ -133,6 +136,10 @@ function clearPiece() {
            clearRect(thePiece.positionX, thePiece.positionY, m);
        }
     }
+}
+
+function recordPosition() {
+    xPosBefore = thePiece.positionX
 }
 
 function clearRect(xPos, yPos, disp) {
